@@ -80,7 +80,7 @@ def check_uid():
                 minutes = (diff % 3600) // 60
                 seconds = diff % 60
                 time_left = f'{days}:{hours}:{minutes}:{seconds}'
-                return jsonify({"status": "success", "message": "UID is whitelisted", "uid": uid, "days_left": time_left})
+                return jsonify({"status": "success", "message": "UID is whitelisted", "uid": uid, "time_left": time_left})
             else:
                 return jsonify({"status": "error", "message": "UID whitelist expired", "uid": uid, "expiry": expiry})
     
