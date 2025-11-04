@@ -74,7 +74,7 @@ def check_uid():
         if entry.get("uid") == uid:
             expiry = entry.get("expiry", 0)
             if expiry > current_time:
-                diff = datetime.timestamp(expiry) - datetime.timestamp(int(time.time()))
+                diff = expiry - int(time.time())
                 days = diff // 86400
                 hours = (diff % 86400) // 3600
                 minutes = (diff % 3600) // 60
