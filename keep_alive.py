@@ -117,6 +117,10 @@ def extend_license():
                 )
                 asyncio.run(dcplugin.send())
 
+
+                with open("whitelist.json", "w") as f:
+                    json.dump(data, f, indent=2)   
+
                 return jsonify({"status": "success", "message": "subscription added successfully.."}), 200
 
             elif extend_type == "month":
@@ -133,14 +137,15 @@ def extend_license():
 
                 asyncio.run(dcplugin.send())
 
+                with open("whitelist.json", "w") as f:
+                    json.dump(data, f, indent=2)  
+
+
                 return jsonify({"status": "success", "message": "subscription added successfully.."}), 200
 
     
 
-    with open("whitelist.json", "w") as f:
-        json.dump(data, f, indent=2)        
-            
-
+    
     dcplugin = DCPlugin(
         url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
         title="Admin Portal",
