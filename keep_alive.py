@@ -106,10 +106,10 @@ def extend_license():
 
     for entry in data:
         if entry["uid"] == uid:
-            expiry = entry["expiry"]
             if extend_type == "week":
                 extend = int(time.time()) + 7 * 24 * 60 * 60
-
+                entry["expiry"] = extend
+                
                 dcplugin = DCPlugin(
                     url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
                     title="UID Subscription",
@@ -122,6 +122,8 @@ def extend_license():
             elif extend_type == "month":
                 extend = int(time.time()) + 30 * 24 * 60 * 60
 
+                entry["expiry"] = extend
+
                 dcplugin = DCPlugin(
                     url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
                     
@@ -132,28 +134,26 @@ def extend_license():
                 asyncio.run(dcplugin.send())
 
                 return jsonify({"status": "success", "message": "subscription added successfully.."}), 200
+
+    
+
+    with open("whitelist.json", "w") as f:
+        json.dump(data, f, indent=2)        
             
-            entry["expiry"] = extend
 
     dcplugin = DCPlugin(
         url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
         title="Admin Portal",
         message=f"Dear admin seems like uid *{uid}* is not added to our record. Please whitelist the uid first to add subscription.\n\nUID: **{uid}**"
     )
-    
+
     asyncio.run(dcplugin.send())
-
-    with open("whitelist.json", "w") as f:
-        json.dump(data, f, indent=2)
-
-
+    
     return jsonify({"status": "error", "message": "uid not whitelisted"}), 200
     
 
 def run():
     app.run(host="0.0.0.0", port=8080)
-
-
 
 
 def keep_alive():
