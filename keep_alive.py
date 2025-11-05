@@ -111,7 +111,7 @@ def extend_license():
                 extend = int(time.time()) + 7 * 24 * 60 * 60
 
                 dcplugin = DCPlugin(
-                    url="https://discord.com/api/webhooks/1433940108012163235/hGe2v3muvbxNFAIGpiLjrNO9bLiGqK6l56KM4qETI1hfEASm2ov9whRcnpy_bJrlmo5N",
+                    url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
                     title="UID Subscription",
                     message=f"**Thank you for purchasing uid bypass weekly subscription. Your subscription is now active.**\nUID: **{uid}**"
                 )
@@ -123,7 +123,8 @@ def extend_license():
                 extend = int(time.time()) + 30 * 24 * 60 * 60
 
                 dcplugin = DCPlugin(
-                    url="https://discord.com/api/webhooks/1433940108012163235/hGe2v3muvbxNFAIGpiLjrNO9bLiGqK6l56KM4qETI1hfEASm2ov9whRcnpy_bJrlmo5N",
+                    url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
+                    
                     title="UID Subscription",
                     message=f"**Thank you for purchasing uid bypass monthly subscription. Your subscription is now active.**\nUID: **{uid}**"
                 )
@@ -135,7 +136,7 @@ def extend_license():
             entry["expiry"] = extend
 
     dcplugin = DCPlugin(
-        url="https://discord.com/api/webhooks/1433940108012163235/hGe2v3muvbxNFAIGpiLjrNO9bLiGqK6l56KM4qETI1hfEASm2ov9whRcnpy_bJrlmo5N",
+        url="https://discord.com/api/webhooks/1435402721459961897/attcgOqiIyfDF-VncFOehlGY_o7AqB4_020PoagrTu8wPFp3YT7eBMAxM-Q7f0shVDTl",
         title="Admin Portal",
         message=f"Dear admin seems like uid *{uid}* is not added to our record. Please whitelist the uid first to add subscription.\n\nUID: **{uid}**"
     )
